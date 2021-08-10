@@ -65,7 +65,7 @@ export default {
               this.isloading = false
               location.reload()
             }else{
-              alert("上传失败,文件中第"+ res.data.wrongRow+"行的录入内容不符合要求")
+              alert("录入失败,文件中第"+ res.data.wrongRow+"行的录入内容不符合要求")
               this.isloading = false
               location.reload()
             }
