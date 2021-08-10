@@ -34,7 +34,7 @@ export default {
   data(){
     return{
       filename1:'请选择文件',
-      filestyle:['csv','xlsx'],
+      filestyle:['xlsx'],
       csvformdata: new FormData,
       is_getfile:false,
       isloading:false,
