@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2 class="subtitle is-2">上传题目打标文件</h2>
+    <h2 class="subtitle is-2">上传包含要"录入"的题目的打标文件</h2>
     <div class="columns">
       <div class="column is-offset-3">
         <div class="file has-name font2">
