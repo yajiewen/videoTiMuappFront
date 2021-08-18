@@ -7,4 +7,3 @@ app.config.globalProperties.$axios = axios;
 
 app.mount('#app')
 
-//createApp(App).use(router).mount('#app')

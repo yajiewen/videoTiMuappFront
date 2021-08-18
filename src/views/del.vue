@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2 class="subtitle is-2">上传题目打标文件</h2>
+    <h2 class="subtitle is-2">上传要删除的题目打标文件</h2>
     <div class="columns">
       <div class="column is-offset-3">
         <div class="file has-name font2">
@@ -23,19 +23,15 @@
     </div>
     <div class="columns">
       <div class="column">
-        <button class="button is-link" v-on:click="gotodel">前往删除题目页面</button>
+        <button class="button is-link" v-on:click="gotoadd">前往添加题目页面</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
-  name: 'Home',
-  components: {
-  },
+name: "del",
   data(){
     return{
       filename1:'请选择文件',
@@ -61,31 +57,35 @@ export default {
       }
     },
     upload(){
-        if (this.is_getfile){
-          this.isloading = true
-          this.$axios.post('/api/timu/addtimu/',this.csvformdata).then(res => {
-            console.log(res.data);
-            if (res.data.is_add == 'yes'){
-              alert("上传成功!"+"添加数目为: "+ res.data.add_num)
-              if (res.data.repeteRow.length !=0)
-              {
-                alert("其中重复的行为:" +res.data.repeteRow+"行")
-              }
-              this.isloading = false
-              location.reload()
-            }else{
-              alert("录入失败,文件中第"+ res.data.wrongRow+"行的录入内容不符合要求")
-              this.isloading = false
-              location.reload()
+      if (this.is_getfile){
+        this.isloading = true
+        this.$axios.post('/api/timu/deltimu/',this.csvformdata).then(res => {
+          console.log(res.data);
+          if (res.data.is_del == 'yes'){
+            alert("上传成功!"+"删除数目为: "+ res.data.del_num )
+            if(res.data.no_find.length != 0)
+            {
+              alert("其中第"+ res.data.no_find +"行未找到!")
             }
-          })
-        }else{
-          alert("请选择文件")
-        }
+            this.isloading = false
+            location.reload()
+          }else{
+            alert("录入失败,文件中第"+ res.data.wrongRow+"行的录入内容不符合要求")
+            this.isloading = false
+            location.reload()
+          }
+        })
+      }else{
+        alert("请选择文件")
+      }
     },
-    gotodel(){
-      this.$router.push("/delpage")
+    gotoadd(){
+      this.$router.push("/")
     }
   },
 }
 </script>
+
+<style scoped>
+
+</style>
