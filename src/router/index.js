@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
 const del= () => import('../views/del')
-
+const detect = () => import('../views/detect')
 const routes = [
   {
     path: '/',
@@ -14,6 +14,11 @@ const routes = [
     name: 'del',
     component: del
   },
+  {
+    path: '/detect',
+    name: 'detect',
+    component: detect
+  }
 ]
 
 const router = createRouter({

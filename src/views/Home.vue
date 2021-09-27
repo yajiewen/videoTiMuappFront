@@ -24,6 +24,7 @@
     <div class="columns">
       <div class="column">
         <button class="button is-link" v-on:click="gotodel">前往删除题目页面</button>
+        <button class="button is-link" v-on:click="gotodetect">前往案例标题检测页面</button>
       </div>
     </div>
   </div>
@@ -85,6 +86,9 @@ export default {
     },
     gotodel(){
       this.$router.push("/delpage")
+    },
+    gotodetect(){
+      this.$router.push("/detect")
     }
   },
 }
