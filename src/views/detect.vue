@@ -42,7 +42,7 @@
     </div>
     <div class="columns">
       <div class="column">
-        <button class="button" v-bind:class="{'is-loading':isloading}" @click="upload">上传</button>
+        <button class="button" v-bind:class="{'is-loading':isloading}" @click="upload">检测</button>
       </div>
     </div>
     <div class="columns">
