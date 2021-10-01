@@ -103,7 +103,7 @@ name: "detect",
         this.$axios.post('/api/timu/detecttitle/',this.csvformdata).then(res => {
           console.log(res.data);
            if(res.data.orderwrong == 'no'){
-             if(res.data.haswrong = 'yes'){
+             if(res.data.haswrong == 'yes'){
                alert("题目文件中,以下行所在事故案例标题打标错误:" + res.data.wrongrow)
              }else{
                alert("案例标题全部正确")
